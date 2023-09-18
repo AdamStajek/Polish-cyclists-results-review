@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from datetime import *
 import requests
+
 class RaceLinksExtraction:
     def extractRaceLinks(self):
         race_refs = self.findRaceRefs()
