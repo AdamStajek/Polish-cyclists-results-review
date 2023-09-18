@@ -1,16 +1,23 @@
-from extraction import *
-from connection import *
-from database_insertion import *
+from link_extraction import RaceLinksExtraction
+from database_operations import truncateTable, connectToDatabase
+from results_extraction import ResultsExtractor
+from database_insertion import Insertion
 
 
 def main():
-    cursor = connection()                                                # connecting with database
-    race_links = extract_race_links()                                    # extract race links
-    results_list = extract_results(race_links)                           # extract polish riders from results
-    cursor.execute("TRUNCATE TABLE public.\"Results\" RESTART IDENTITY") # truncate table (to remove after tests)
-    insertion(results_list, cursor)                                      # insertion into database
+    race_links_extraction, results_extraction, insertion = createObjectInstances()
+    database = connectToDatabase()
+    race_links = race_links_extraction.extractRaceLinks()
+    results_list = results_extraction.extractResults(race_links)
+    # TODO delete truncation after tests
+    truncateTable(database)
+    insertion.insertData(database, results_list)
 
+
+def createObjectInstances():
+    return RaceLinksExtraction(), ResultsExtractor(), Insertion()
 
 
 if __name__ == "__main__":
     main()
+
