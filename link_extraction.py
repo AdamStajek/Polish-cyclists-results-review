@@ -6,12 +6,6 @@ class RaceLinksExtraction:
         race_refs = self.findRaceRefs()
         return self.createRaceLinks(race_refs)
 
-    def createRaceLinks(self, race_refs):
-        race_links = []
-        for race_ref in race_refs:
-            race_links.append(race_ref.get('href'))
-        return race_links
-
     def findRaceRefs(self):
         FCHtml = self.getFCHtml()
         BSInstance = self.createBSInstance(FCHtml)
@@ -30,3 +24,11 @@ class RaceLinksExtraction:
 
     def findTodayRaces(self, BSInstance, current_date):
         return BSInstance.find('div', id=current_date)
+
+    def createRaceLinks(self, race_refs):
+        race_links = []
+        for race_ref in race_refs:
+            race_links.append(race_ref.get('href'))
+        return race_links
+
+
