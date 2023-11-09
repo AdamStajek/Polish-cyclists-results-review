@@ -1,5 +1,5 @@
 
-class Insertion:
+class DatabaseInsertion:
     def insertData(self, cursor, results_list):
         for result in results_list:
             self.insertCyclists(cursor, result)

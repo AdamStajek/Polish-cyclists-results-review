@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-class ResultsExtractor:
+class ResultsExtraction:
     def extractResults(self, race_links):
         polish_result_list = []
         for race_link in race_links:
