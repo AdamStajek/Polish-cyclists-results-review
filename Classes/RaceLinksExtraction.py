@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from datetime import *
+from datetime import date
 import requests
 
 class RaceLinksExtraction:
@@ -21,7 +21,7 @@ class RaceLinksExtraction:
         return BeautifulSoup(fcHtml, "lxml")
 
     def getDate(self):
-        return datetime.today().strftime("%B") + str(datetime.today().day)
+        return date.today().strftime("%B") + str(date.today().day)
 
     def findTodayRaces(self, BSInstance, current_date):
         return BSInstance.find('div', id=current_date)

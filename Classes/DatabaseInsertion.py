@@ -27,3 +27,5 @@ class DatabaseInsertion:
 
     def timeNoneToNull(self, result):
         result[3] = result[3] or "NULL"
+
+
