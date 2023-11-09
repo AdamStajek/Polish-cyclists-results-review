@@ -1,7 +1,6 @@
 # Polish_cyclists_results_review
 ## Overview
-The app for cycling fans to follow the results of polish cyclists (men and women) every day. 
-It scraps standings from [First Cycling](https://firstcycling.com/), filters them to show only polish riders and saves them into the relational postgresql database. You can run it every day to have a complete database of the results of polish cyclists over last period. Once you create a database (there is a script for that), it will be updated with every run of the main program. The database is created in accordance with the Kimball's dimensional modeling techniques.
+The app is designed for cycling fans to daily track the results of Polish cyclists (men and women). It scrapes standings from [First Cycling](https://firstcycling.com/), filters them to display only Polish riders, and then saves this information into a relational PostgreSQL database. You can run the app daily to maintain a complete database of Polish cyclists' results over the last period. Once the initial database is created (a script is provided for this), subsequent runs of the main program will update it. The database follows Kimball's dimensional modeling techniques.
 
 **Modules used**:
 - **BeautifulSoup4** is used to scrap data from FirstCycling
